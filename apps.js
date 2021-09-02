@@ -9,19 +9,24 @@
 
 var btnTranslate =document.querySelector("#btn-translate");
 var txtInput = document.querySelector("#txt-input");
-console.log(txtInput);
+//console.log(txtInput);
+var txtOutput = document.querySelector("#output");
+console.log(txtOutput);
 
+//txtOutput.innerText = "Sanjeev"
 // btnTranslate.addEventListener("click", function clickEventHandler() {
 //     console.log("clicked")
 // });
 
 //callback
 function clickHandler() {
-    console.log("clicked")
-    console.log("input", txtInput.value)
+    // console.log("clicked");
+    // console.log("input", txtInput.value);
+    txtOutput.innerText = "asdasf  " + txtInput.value;
 };
 
 btnTranslate.addEventListener("click", clickHandler);
 
 //wiring textarea input
+
 
