@@ -18,11 +18,31 @@ console.log(txtOutput);
 //     console.log("clicked")
 // });
 
+var serverURL = "https://api.funtranslations.com/translate/minion.json"
+//var serverURL = "https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json"
+function getTranslationURL(text) {
+    return serverURL + "?" + "text" + text;
+}
+
+function errorHandler(error) {
+    console.log("error occured", error );
+    alert("something wrong with server try after some time");
+}
+
+
 //callback
 function clickHandler() {
     // console.log("clicked");
     // console.log("input", txtInput.value);
-    txtOutput.innerText = "asdasf  " + txtInput.value;
+    //txtOutput.innerText = "asdasf  " + txtInput.value;
+    var inputTxt = txtInput.value; // taking input
+    fetch(getTranslationURL(inputTxt))
+    .then(response => response.json())
+    .then(json => {
+        var translatedText = json.contents.translated;
+        txtOutput.innerText = translatedText;
+        })
+    .catch(errorHandler)
 };
 
 btnTranslate.addEventListener("click", clickHandler);
